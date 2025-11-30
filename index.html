@@ -8,20 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
     <style>
         /* Reset básico */
-        .hero-image {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.hero-image img {
-    max-width: 250px; /* ajusta el tamaño */
-    width: 100%;
-    height: auto;
-    border-radius: 10px; /* opcional */
-}
-
         * {
             margin: 0;
             padding: 0;
@@ -104,6 +90,20 @@
             margin-top: 80px; /* Espacio para header fijo */
         }
 
+        .hero-image {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .hero-image img {
+            max-width: 200px; /* Reducido para móviles */
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
         .hero h1 {
             font-size: 3rem;
             font-weight: 700;
@@ -154,7 +154,11 @@
             margin: 0 auto;
         }
 
-        .gallery img {
+        .gallery .item {
+            text-align: center; /* Centra el contenido */
+        }
+
+        .gallery .item img {
             width: 100%;
             height: auto;
             border-radius: 5px;
@@ -162,8 +166,16 @@
             transition: transform 0.3s ease;
         }
 
-        .gallery img:hover {
+        .gallery .item img:hover {
             transform: scale(1.05);
+        }
+
+        .gallery .item h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 10px;
+            font-family: 'Outfit', sans-serif;
+            color: #FFFFFF;
         }
 
         /* Modal */
@@ -221,6 +233,11 @@
             text-align: center;
         }
 
+        footer h1 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
         footer .social-links {
             display: flex;
             justify-content: center;
@@ -258,10 +275,23 @@
         }
 
         /* Responsive */
+        @media (max-width: 1024px) { /* Tablets */
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
+            }
+            .project-section h2 {
+                font-size: 2rem;
+            }
+        }
+
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
                 text-align: center;
+                padding: 15px;
             }
 
             header nav {
@@ -279,39 +309,62 @@
                 display: block;
             }
 
+            .hero {
+                padding: 10px;
+                margin-top: 60px; /* Ajuste para header más pequeño */
+            }
+
             .hero h1 {
-                font-size: 2rem;
+                font-size: 1.8rem; /* Más pequeño para móviles */
+            }
+
+            .hero p {
+                font-size: 1rem;
+                max-width: 90%;
+            }
+
+            .hero-image img {
+                max-width: 150px; /* Aún más pequeño */
+            }
+
+            .project-section {
+                padding: 40px 10px;
+            }
+
+            .project-section h2 {
+                font-size: 1.8rem;
             }
 
             .gallery {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr; /* Una columna en móviles */
+                gap: 15px;
+            }
+
+            .gallery .item h3 {
+                font-size: 1rem;
             }
 
             .modal-card iframe {
                 height: 300px; /* Altura menor en móvil */
             }
+
+            footer .links {
+                flex-direction: column;
+                gap: 15px;
+            }
         }
 
-        .gifs-proyectos {
-    display: flex;
-    justify-content: center;  /* Centra los GIFs */
-    align-items: center;
-    gap: 20px;                /* Espacio entre GIFs */
-    margin-bottom: 20px;
-}
-
-.gifs-proyectos img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-}
-
-</section id branding> <div class="project-section">
-</section>
-<div class="project-section">
-<img src="img\SAORI\YOPLI.png">
-
-        
+        @media (max-width: 480px) { /* Pantallas muy pequeñas */
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            .hero p {
+                font-size: 0.9rem;
+            }
+            footer h1 {
+                font-size: 1.2rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -319,35 +372,25 @@
     <!-- Header -->
     <header>
         <div class="logo">
-            <img src="img/SAORI/Recurso 1RAVE SESION.png" alt="Logotipo"> <!-- Reemplaza con tu logotipo -->
-            
-           
+            <img src="img/SAORI/Recurso 1RAVE SESION.png" alt="Logotipo">
         </div>
         <button class="menu-toggle" aria-label="Toggle menu">☰</button>
         <nav>
             <a href="#inicio">Inicio</a>
             <a href="#contacto">Contacto</a>
-          
             <a href="https://www.behance.net/saoristudio" target="_blank">Behance</a>
         </nav>
     </header>
 
-
-    
- <!-- Sección de presentación (Inicio) -->
-<section id="inicio" class="hero">
-
-    <!-- Imagen agregada arriba del título -->
-    <div class="hero-image">
-        <img src="img\SAORI\YOPLI.png" alt="Foto de presentación">
-    </div>
-
-    <h1>Bienvenido a mi Portafolio</h1>
-    <p>Hola, soy ADRI MASCORRO, a.k.a. @SAORI.STUDIO.
-    Soy diseñador gráfico Jr., fotógrafo, ilustrador y artista gráfico. Me especializo en la creación de identidades visuales, en la fotografía editorial Y en motion graphic.</p>
-    <a href="#proyectos" class="cta">Ver Proyectos</a>
-</section>
-
+    <!-- Sección de presentación (Inicio) -->
+    <section id="inicio" class="hero">
+        <div class="hero-image">
+            <img src="img/SAORI/YOPLI.png" alt="Foto de presentación">
+        </div>
+        <h1>Bienvenido a mi Portafolio</h1>
+        <p>Hola, soy ADRI MASCORRO, a.k.a. @SAORI.STUDIO. Soy diseñador gráfico Jr., fotógrafo, ilustrador y artista gráfico. Me especializo en la creación de identidades visuales, en la fotografía editorial y en motion graphic.</p>
+        <a href="#proyectos" class="cta">Ver Proyectos</a>
+    </section>
 
     <!-- Secciones de proyectos -->
     <section id="proyectos" class="project-section">
@@ -356,60 +399,61 @@
         <div class="project-section">
             <h2>FOTOGRAFÍA</h2>
             <div class="gallery">
-               
-<div class="gallery">
-    <div class="item">
-        <a href="fotografiaDRTFT.html">
-            <img src="img/DRIFT CAFE/05-10-2025-BLINGBLING-47.png" alt="Fotografía 1">
-        </a>
-        <h3>DRIFT</h3>
-    </div>
-</div>
-
-                
-                
-                <!-- Reemplaza con tus imágenes -->
-                 <div class="item">
-                 <a href="FOTOGRAFIABLING.HTML"> <img src="img\BLINGBLING\Recurso 3SAORIARCHIVE.png" alt="Fotografía 2"></a>
-                  </a>
-    <h3>BLINGBLING</h3>
-</div>
-               
-            <div class="item">
-    <a href="SAORI.EDITORIAL.HTML">
- <img src="img\SAORIARCHIVE\zaza\Recurso 2SAORIARCHIVE.png" alt="Fotografía 3" ></a>
-                  </a>
-          <h3>SAORI.ARCHIVE</h3>
-</div>
-   
-
-  </section id branding> <div class="project-section">
-            <h2>IDENTIDAD VISUAL</h2>
-            <div class="gallery">
-
-           <a href="intercrea.html"><img src="img\INTERCREA\Recurso 2INTERCREA.png" alt="Branding 2"></a>
-               <a href="GARABATOS.HTML"> <img src="img\GARABATOS\Recurso 2GARABATS.png" alt="Branding 3"></a>
-               
-              <a href="saori.html"> <img src="img\SAORI\Recurso 2vaampire culture.png" alt="Branding 2"></a> 
-               
+                <div class="item">
+                    <a href="fotografiaDRTFT.html">
+                        <img src="img/DRIFT CAFE/05-10-2025-BLINGBLING-47.png" alt="Fotografía 1">
+                    </a>
+                    <h3>DRIFT</h3>
+                </div>
+                <div class="item">
+                    <a href="FOTOGRAFIABLING.HTML">
+                        <img src="img/BLINGBLING/Recurso 3SAORIARCHIVE.png" alt="Fotografía 2">
+                    </a>
+                    <h3>BLINGBLING</h3>
+                </div>
+                <div class="item">
+                    <a href="SAORI.EDITORIAL.HTML">
+                        <img src="img/SAORIARCHIVE/zaza/Recurso 2SAORIARCHIVE.png" alt="Fotografía 3">
+                    </a>
+                    <h3>SAORI.ARCHIVE</h3>
+                </div>
             </div>
         </div>
 
-      
-           
+        <div class="project-section">
+            <h2>IDENTIDAD VISUAL</h2>
+            <div class="gallery">
+                <div class="item">
+                    <a href="intercrea.html">
+                        <img src="img/INTERCREA/Recurso 2INTERCREA.png" alt="Branding 1">
+                    </a>
+                    <h3>INTERCREA</h3>
+                </div>
+                <div class="item">
+                    <a href="GARABATOS.HTML">
+                        <img src="img/GARABATOS/Recurso 2GARABATS.png" alt="Branding 2">
+                    </a>
+                    <h3>GARABATOS</h3>
+                </div>
+                <div class="item">
+                    <a href="saori.html">
+                        <img src="img/SAORI/Recurso 2vaampire culture.png" alt="Branding 3">
+                    </a>
+                    <h3>SAORI</h3>
+                </div>
+            </div>
+        </div>
     </section>
+
     <!-- Footer -->
     <footer id="contacto">
         <h1>contacto.saori.studio@gmail.com</h1>
-<br>
+        <br>
         <div class="social-links">
-
             <a href="https://www.instagram.com/sa0ri.studio/" target="_blank">Instagram</a>
-        
-           
         </div>
         <div class="links">
-            <a href="#" onclick="openModal()">CV</a> <!-- Cambiado para abrir modal -->
+            <a href="#" onclick="openModal()">CV</a>
             <a href="https://www.behance.net/saoristudio" target="_blank">Behance</a>
         </div>
     </footer>
@@ -418,7 +462,7 @@
     <div id="pdfModal" class="modal">
         <div class="modal-card">
             <button class="close-btn" onclick="closeModal()">&times;</button>
-            <iframe src="pdf/Adrián Mascorro Leos.pdf" title="Vista previa del CV"></iframe> <!-- Reemplaza con la ruta de tu PDF -->
+            <iframe src="pdf/Adrián Mascorro Leos.pdf" title="Vista previa del CV"></iframe>
         </div>
     </div>
 
