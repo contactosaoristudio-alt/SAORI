@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAORI.S</title>
+    <!-- Importar fuentes desde Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #000000; /* Fondo negro */
+            color: #FFFFFF; /* Texto blanco */
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: #FFFFFF;
+            text-decoration: none;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .back-link:hover {
+            color: #CCCCCC;
+        }
+
+        .section {
+            margin-bottom: 60px;
+            padding: 20px;
+            background-color: #111; /* Fondo ligeramente más claro para contraste */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-family: 'Outfit', sans-serif;
+            text-align: center;
+        }
+
+        .section h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-family: 'Outfit', sans-serif;
+            text-align: right; /* Alineado a la derecha */
+        }
+
+        .right-text {
+            text-align: right; /* Alineado a la derecha para el párrafo */
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Estilos para el logotipo y presentación */
+        .logo-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo-section img {
+            max-width: 200px; /* Ajusta el tamaño según necesites */
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+        }
+
+        .presentation-section {
+            text-align: justify;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px; /* Espacio antes del GIF */
+        }
+
+        /* Estilo para centrar el GIF */
+        .centered-gif {
+            display: flex;
+            justify-content: center; /* Centrado horizontal */
+            align-items: center; /* Centrado vertical si es necesario */
+            margin: 20px 0; /* Espacio arriba y abajo */
+        }
+
+        .centered-gif img {
+            max-width: 900px; /* Responsivo, no excede el contenedor */
+            height: auto; /* Mantiene proporción */
+            border-radius: 5px; /* Opcional, para consistencia con el diseño */
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Sombra sutil como en otros elementos */
+        }
+
+        /* Estilo para foto a la derecha */
+        .centered-photo {
+            display: flex;
+            justify-content: flex-end; /* Alineado a la derecha */
+            align-items: center; /* Centrado vertical si es necesario */
+            margin: 20px 0; /* Espacio arriba y abajo */
+        }
+
+        .centered-photo img {
+            max-width: 100%; /* Responsivo, no excede el contenedor */
+            height: auto; /* Mantiene proporción */
+            border-radius: 5px; /* Opcional, para consistencia con el diseño */
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Sombra sutil como en otros elementos */
+        }
+
+        /* Estilo para fotos en fila */
+        .photos-row {
+            display: flex;
+            justify-content: center; /* Centra la fila */
+            gap: 15px; /* Espacio entre imágenes */
+            flex-wrap: wrap; /* Permite que se envuelvan en líneas si no caben */
+            margin-top: 20px;
+        }
+
+        .photos-row img {
+            max-width: 300px; /* Tamaño fijo para consistencia */
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s; /* Efecto hover sutil */
+        }
+
+        .photos-row img:hover {
+            transform: scale(1.05); /* Zoom leve al pasar el mouse */
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .section h2 {
+                font-size: 1.5rem;
+            }
+
+            .section h3 {
+                font-size: 1.2rem;
+            }
+
+            .logo-section img {
+                max-width: 150px; /* Ajuste para móviles */
+            }
+
+            .centered-gif img, .centered-photo img {
+                max-width: 90%; /* Reduce en móviles */
+            }
+
+            .photos-row {
+                gap: 10px; /* Menos espacio en móviles */
+            }
+
+            .photos-row img {
+                max-width: 120px; /* Más pequeño en móviles */
+            }
+
+            .centered-photo {
+                justify-content: center; /* Centra en móviles para mejor vista */
+            }
+
+            .section h3, .right-text {
+                text-align: center; /* Centra en móviles para legibilidad */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1></h1>
+        <a href="index.html" class="back-link">← Volver al Portafolio</a>
+    </header>
+
+    <!-- Sección: Sobre el Proyecto -->
+    <section class="section">
+        <h2></h2>
+        
+        <!-- Sección del logotipo -->
+        <div class="logo-section">
+            <img src="img\SAORI\Recurso 1RAVE SESION.png" alt="Logotipo de SAORI ARCHIVE"> <!-- Reemplaza con la ruta real de tu logotipo -->
+        </div>
+        
+        <!-- Sección de presentación -->
+        <div class="presentation-section">
+            <p>Saori nace de una filosofía que entiende el diseño como un acto profundamente humano. Inspirado en la técnica japonesa del tejido Saori, nuestro estudio concibe la creatividad como un proceso vivo: nunca lineal, nunca perfecto, siempre auténtico.
+
+En Saori creemos que cada proyecto como cada hilo en un telar transforma la historia que estamos construyendo. No buscamos un camino ideal, sino un camino propio, donde cada decisión, cada error que enseña y cada cambio inesperado se vuelve parte de la belleza final.</p>
+            <!-- Edita este texto con tu presentación real -->
+        </div>
+        
+        <!-- GIF Centrado -->
+        <div class="centered-gif">
+            <img src="img\SAORI\SAORI. ARCHIVE.gif" alt="GIF animado del proyecto"> <!-- Reemplaza con la ruta real de tu GIF -->
+        </div>
+        
+        <!-- Sección de Fotos en Fila -->
+        <div class="photos-row">
+            <img src="img\SAORI\Recurso 1vampire culture.png" alt="Foto en fila 1"> <!-- Agrega más imágenes aquí -->
+            <img src="img\SAORI\Recurso 3vampire culture.png" alt="Foto en fila 2">
+            <img src="img\SAORI\Recurso 4vampire culture.png" alt="Foto en fila 3">
+           
+            <!-- Agrega tantas como necesites -->
+        </div>
+        
+        <!-- Otro GIF Centrado -->
+        <div class="centered-gif">
+            <img src="img\SAORI\grafica 2.gif" alt="Otro GIF animado"> <!-- Reemplaza con la ruta real de tu segundo GIF -->
+        </div>
+        
+        <div class="photos-row">
+            <img src="img\SAORIARCHIVE\zaza\8.png" alt="Foto en fila 1"> <!-- Agrega más imágenes aquí -->
+            <img src="img\SAORIARCHIVE\zaza\12.png" alt="Foto en fila 2">
+            <img src="img\SAORIARCHIVE\zaza\10.png" alt="Foto en fila 3">
+           
+            <!-- Agrega tantas como necesites -->
+        </div>
+        
+          <div class="photos-row">
+            <img src="img\SAORIARCHIVE\sindiseño\foto1.png" alt="Foto en fila 1"> <!-- Agrega más imágenes aquí -->
+            <img src="img\SAORIARCHIVE\sindiseño\foto2.png" alt="Foto en fila 2">
+            <img src="img\SAORIARCHIVE\sindiseño\foto3.png" alt="Foto en fila 3">
+           
+            <!-- Agrega tantas como necesites -->
+        </div>
+        
+
+    <!-- No hay más secciones; la página termina aquí para mantenerla simple -->
+</body>
+</html>

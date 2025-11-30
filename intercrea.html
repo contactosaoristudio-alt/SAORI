@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERCREA</title>
+    <!-- Importar fuentes desde Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #000000; /* Fondo negro */
+            color: #FFFFFF; /* Texto blanco */
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: #FFFFFF;
+            text-decoration: none;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .back-link:hover {
+            color: #CCCCCC;
+        }
+
+        .section {
+            margin-bottom: 60px;
+            padding: 20px;
+            background-color: #111; /* Fondo ligeramente más claro para contraste */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-family: 'Outfit', sans-serif;
+            text-align: center;
+        }
+
+        /* Carrusel para imágenes */
+        .carousel {
+            position: relative;
+            max-width: 400px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .carousel-container {
+            display: flex;
+            transition: transform 0.5s ease; /* Animación suave */
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .carousel-slide img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #000000;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .carousel-nav.prev {
+            left: 10px;
+        }
+
+        .carousel-nav.next {
+            right: 10px;
+        }
+
+        .carousel-nav:hover {
+            background-color: #CCCCCC;
+        }
+
+        /* Grid para videos y GIFs */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .grid-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .grid-item:hover {
+            transform: scale(1.05);
+        }
+
+        .grid-item img, .grid-item video, .grid-item iframe {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .grid-item video {
+            height: 200px; /* Altura fija para consistencia */
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .section h2 {
+                font-size: 1.5rem;
+            }
+
+            .carousel {
+                max-width: 100%;
+            }
+
+            .carousel-nav {
+                width: 30px;
+                height: 30px;
+                font-size: 1rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .grid-item video {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>INTERCREA</h1>
+        <a href="index.html" class="back-link">← Volver al Portafolio</a> <!-- Cambia "index.html" por el nombre de tu archivo principal -->
+    </header>
+
+    <!-- Sección GIFs -->
+    <section class="section">
+        <h2></h2>
+        <div class="grid">
+            <div class="grid-item"><img src="img/INTERCREA/INTERCREA2025 (1).gif" alt="GIF 1"></div>
+        </div>
+    </section>
+
+    <!-- Sección Imágenes 1 (Carrusel) -->
+    <section class="section">
+        <h2></h2>
+        <div class="carousel" id="carousel-imagenes1">
+            <div class="carousel-container" id="container-imagenes1">
+                <div class="carousel-slide"><img src="img/INTERCREA/Recurso 2INTERCREA.png" alt="Imagen 1"></div>
+                <div class="carousel-slide"><img src="img/INTERCREA/Recurso 5intercrea.png" alt="Imagen 2"></div>
+                <div class="carousel-slide"><img src="img/INTERCREA/Recurso 1intercrea.png" alt="Imagen 3"></div>
+            </div>
+            <button class="carousel-nav prev" onclick="prevSlide('imagenes1')">&#10094;</button>
+            <button class="carousel-nav next" onclick="nextSlide('imagenes1')">&#10095;</button>
+        </div>
+    </section>
+
+    <!-- Sección Imágenes 2 (Carrusel) -->
+    <section class="section">
+        <h2></h2>
+        <div class="carousel" id="carousel-imagenes2">
+            <div class="carousel-container" id="container-imagenes2">
+                <div class="carousel-slide"><img src="img/INTERCREA/Recurso 1 QR INTERCREA.png" alt="Imagen 2"></div>            
+                <div class="carousel-slide"><img src="img/INTERCREA/Recurso 1intercrea.png" alt="Imagen 3"></div>
+                           <div class="carousel-slide"><img src="img/INTERCREA/Recurso 1INTERCRE HISTORIAS.png" alt="Imagen 1"></div>
+
+            </div>
+            <button class="carousel-nav prev" onclick="prevSlide('imagenes2')">&#10094;</button>
+            <button class="carousel-nav next" onclick="nextSlide('imagenes2')">&#10095;</button>
+        </div>
+    </section>
+
+    <!-- Sección GIFs (Grid) -->
+    <section class="section">
+        <h2></h2>
+        <div class="grid">
+            <div class="grid-item"><img src="img/INTERCREA/videooo.gif" alt="GIF 1"></div>
+        </div>
+    </section>
+
+    <script>
+        // Control de carruseles
+        const carousels = {
+            imagenes1: { current: 0, interval: null },
+            imagenes2: { current: 0, interval: null }
+        };
+
+        function updateCarousel(category) {
+            const container = document.getElementById(`container-${category}`);
+            const slides = container.children;
+            if (slides.length === 0) return;
+
+            const offset = -carousels[category].current * 100;
+            container.style.transform = `translateX(${offset}%)`;
+
+            // Iniciar autoplay si no está activo
+            if (!carousels[category].interval) {
+                carousels[category].interval = setInterval(() => {
+                    nextSlide(category);
+                }, 3000); // Cambia cada 3 segundos
+            }
+        }
+
+        function prevSlide(category) {
+            const container = document.getElementById(`container-${category}`);
+            const slides = container.children;
+            if (slides.length === 0) return;
+
+            carousels[category].current = (carousels[category].current - 1 + slides.length) % slides.length;
+            updateCarousel(category);
+        }
+
+        function nextSlide(category) {
+            const container = document.getElementById(`container-${category}`);
+            const slides = container.children;
+            if (slides.length === 0) return;
+
+            carousels[category].current = (carousels[category].current + 1) % slides.length;
+            updateCarousel(category);
+        }
+
+        // Pausar autoplay al hacer hover
+        ['imagenes1', 'imagenes2'].forEach(category => {
+            const carousel = document.getElementById(`carousel-${category}`);
+            carousel.addEventListener('mouseenter', () => {
+                clearInterval(carousels[category].interval);
+                carousels[category].interval = null;
+            });
+            carousel.addEventListener('mouseleave', () => {
+                updateCarousel(category); // Reinicia autoplay
+            });
+        });
+
+        // Iniciar carruseles al cargar la página
+        window.addEventListener('load', () => {
+            ['imagenes1', 'imagenes2'].forEach(category => {
+                updateCarousel(category);
+            });
+        });
+    </script>
+</body>
+</html>

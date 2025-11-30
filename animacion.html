@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIFs y Videos</title>
+    <!-- Importar fuentes desde Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #000000; /* Fondo negro */
+            color: #FFFFFF; /* Texto blanco */
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: #FFFFFF;
+            text-decoration: none;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .back-link:hover {
+            color: #CCCCCC;
+        }
+
+        .section {
+            margin-bottom: 60px;
+            padding: 20px;
+            background-color: #111; /* Fondo ligeramente más claro para contraste */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-family: 'Outfit', sans-serif;
+            text-align: center;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grid-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .grid-item:hover {
+            transform: scale(1.05);
+        }
+
+        .grid-item img, .grid-item video, .grid-item iframe {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .grid-item video {
+            height: 200px; /* Altura fija para consistencia */
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .section h2 {
+                font-size: 1.5rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .grid-item video {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>GIFs y Videos</h1>
+        <a href="index.html" class="back-link">← Volver al Portafolio</a> <!-- Cambia "index.html" por el nombre de tu archivo principal -->
+    </header>
+
+    <!-- Sección GIFs -->
+    <section class="section">
+        <h2>GIFs</h2>
+        <div class="grid">
+            <div class="grid-item"><img src="gif1.gif" alt="GIF 1"></div>
+            <div class="grid-item"><img src="gif2.gif" alt="GIF 2"></div>
+            <div class="grid-item"><img src="gif3.gif" alt="GIF 3"></div>
+            <div class="grid-item"><img src="gif4.gif" alt="GIF 4"></div>
+            <!-- Agrega más GIFs aquí -->
+        </div>
+    </section>
+
+    <!-- Sección Videos -->
+    <section class="section">
+        <h2>Videos</h2>
+        <div class="grid">
+            <div class="grid-item">
+                <video controls>
+                    <source src="video1.mp4" type="video/mp4">
+                    Tu navegador no soporta videos.
+                </video>
+            </div>
+            <div class="grid-item">
+                <video controls>
+                    <source src="video2.mp4" type="video/mp4">
+                    Tu navegador no soporta videos.
+                </video>
+            </div>
+            <div class="grid-item">
+                <video controls>
+                    <source src="video3.mp4" type="video/mp4">
+                    Tu navegador no soporta videos.
+                </video>
+            </div>
+            <!-- Para videos de YouTube/Vimeo, usa iframes en lugar de <video> -->
+            <!-- Ejemplo: <div class="grid-item"><iframe src="https://www.youtube.com/embed/TU_VIDEO_ID" frameborder="0" allowfullscreen></iframe></div> -->
+        </div>
+    </section>
+
+    <script>
+        // Opcional: Agregar funcionalidad extra si necesitas (ej. lazy loading para videos)
+        // Por ahora, es simple y funcional.
+    </script>
+</body>
+</html>

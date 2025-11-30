@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería Completa: Imágenes, Videos y GIFs</title>
+    <!-- Importar fuentes desde Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #000000; /* Fondo negro */
+            color: #FFFFFF; /* Texto blanco */
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: #FFFFFF;
+            text-decoration: none;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .back-link:hover {
+            color: #CCCCCC;
+        }
+
+        .section {
+            margin-bottom: 60px;
+            padding: 20px;
+            background-color: #111; /* Fondo ligeramente más claro para contraste */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-family: 'Outfit', sans-serif;
+            text-align: center;
+        }
+
+        /* Carrusel para imágenes */
+        .carousel {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .carousel-container {
+            display: flex;
+            transition: transform 0.5s ease; /* Animación suave */
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .carousel-slide img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #000000;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .carousel-nav.prev {
+            left: 10px;
+        }
+
+        .carousel-nav.next {
+            right: 10px;
+        }
+
+        .carousel-nav:hover {
+            background-color: #CCCCCC;
+        }
+
+        /* Grid para videos y GIFs */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grid-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .grid-item:hover {
+            transform: scale(1.05);
+        }
+
+        .grid-item img, .grid-item video, .grid-item iframe {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .grid-item video {
+            height: 200px; /* Altura fija para consistencia */
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .section h2 {
+                font-size: 1.5rem;
+            }
+
+            .carousel {
+                max-width: 100%;
+            }
+
+            .carousel-nav {
+                width: 30px;
+                height: 30px;
+                font-size: 1rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .grid-item video {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Galería Completa</h1>
+        <a href="index.html" class="back-link">← Volver al Portafolio</a> <!-- Cambia "index.html" por el nombre de tu archivo principal -->
+    </header>
+
+    <!-- Sección Imágenes (Carrusel) -->
+    <section class="section">
+        <h2>Imágenes</h2>
+        <div class="carousel" id="carousel-imagenes">
+            <div class="carousel-container" id="container-imagenes">
+                <div class="carousel-slide"><img src="imagen1.jpg" alt="Imagen 1"></div>
+                <div class="carousel-slide"><img src="imagen2.jpg" alt="Imagen 2"></div>
+                <div class="carousel-slide"><img src="imagen3.jpg" alt="Imagen 3"></div>
+                <div class="carousel-slide"><img src="imagen4.jpg" alt="Imagen 4"></div>
+                <div class="carousel-slide"><img src="imagen5.jpg" alt="Imagen 5"></div>
+                <div class="carousel-slide"><img src="imagen6.jpg" alt="Imagen 6"></div>
+            </div>
+            <button class="carousel-nav prev" onclick="prevSlide('imagenes')">&#10094;</button>
+            <button class="carousel-nav next" onclick="nextSlide('imagenes')">&#10095;</button>
+        </div>
+    </section>
+
+    <!-- Sección Videos (Grid) -->
+    <section class="section">
+        <h2>Videos</h2>
+        <div class="grid">
+            <div class="grid-item">
+                <video controls>
+                    <source src="video1.mp4" type="video/mp4">
+                    Tu navegador no soporta videos.
+                </video>
+            </div>
+            <div class="grid-item">
+                <video controls>
+                    <source src="video2.mp4" type="video/mp4">
+                    Tu navegador no soporta videos.
+                </video>
+            </div>
+            <div class="grid-item">
+                <video controls>
+                    <source src="video3.mp4" type="video/mp4">
+                    Tu navegador no soporta videos.
+                </video>
+            </div>
+            <!-- Para videos de YouTube/Vimeo, usa iframes en lugar de <video> -->
+            <!-- Ejemplo: <div class="grid-item"><iframe src="https://www.youtube.com/embed/TU_VIDEO_ID" frameborder="0" allowfullscreen></iframe></div> -->
+        </div>
+    </section>
+
+    <!-- Sección GIFs (Grid) -->
+    <section class="section">
+        <h2>GIFs</h2>
+        <div class="grid">
+            <div class="grid-item"><img src="gif1.gif" alt="GIF 1"></div>
+            <div class="grid-item"><img src="gif2.gif" alt="GIF 2"></div>
+            <div class="grid-item"><img src="gif3.gif" alt="GIF 3"></div>
+            <div class="grid-item"><img src="gif4.gif" alt="GIF 4"></div>
+            <!-- Agrega más GIFs aquí -->
+        </div>
+    </section>
+
+    <script>
+        // Control del carrusel de imágenes
+        let currentSlideImagenes = 0;
+        let autoPlayIntervalImagenes;
+
+        function updateCarouselImagenes() {
+            const container = document.getElementById('container-imagenes');
+            const slides = container.children;
+            if (slides.length === 0) return;
+
+            const offset = -currentSlideImagenes * 100;
+            container.style.transform = `translateX(${offset}%)`;
+
+            // Iniciar autoplay si no está activo
+            if (!autoPlayIntervalImagenes) {
+                autoPlayIntervalImagenes = setInterval(() => {
+                    nextSlide('imagenes');
+                }, 3000); // Cambia cada 3 segundos
+            }
+        }
+
+        function prevSlide(category) {
+            if (category === 'imagenes') {
+                const container = document.getElementById('container-imagenes');
+                const slides = container.children;
+                if (slides.length === 0) return;
+
+                currentSlideImagenes = (currentSlideImagenes - 1 + slides.length) % slides.length;
+                updateCarouselImagenes();
+            }
+        }
+
+        function nextSlide(category) {
+            if (category === 'imagenes') {
+                const container = document.getElementById('container-imagenes');
+                const slides = container.children;
+                if (slides.length === 0) return;
+
+                currentSlideImagenes = (currentSlideImagenes + 1) % slides.length;
+                updateCarouselImagenes();
+            }
+        }
+
+        // Pausar autoplay al hacer hover
+        document.getElementById('carousel-imagenes').addEventListener('mouseenter', () => {
+            clearInterval(autoPlayIntervalImagenes);
+            autoPlayIntervalImagenes = null;
+        });
+
+        document.getElementById('carousel-imagenes').addEventListener('mouseleave', () => {
+            updateCarouselImagenes(); // Reinicia autoplay
+        });
+
+        // Iniciar carrusel al cargar la página
+        window.addEventListener('load', () => {
+            updateCarouselImagenes();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLINGBLING</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #000;
+            color: #fff;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .back-link:hover {
+            color: #ccc;
+        }
+
+        .section {
+            margin-bottom: 60px;
+            padding: 20px;
+            background-color: #111;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            font-family: 'Outfit', sans-serif;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Carrusel */
+        .carousel {
+            position: relative;
+            max-width: 400px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .carousel-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #000;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .carousel-nav.prev { left: 10px; }
+        .carousel-nav.next { right: 10px; }
+
+        .carousel-nav:hover {
+            background-color: #ccc;
+        }
+
+        @media (max-width: 768px) {
+            .carousel { max-width: 100%; }
+            .carousel-nav {
+                width: 30px;
+                height: 30px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>BLINGBLING</h1>
+        <a href="index.html" class="back-link">← Volver al Portafolio</a>
+    </header>
+
+    <!-- Fotografía -->
+    <section class="section">
+        <h2>BLINGBLING</h2>
+
+        <div class="carousel" id="carousel-foto">
+            <div class="carousel-container" id="container-foto">
+                <div class="carousel-slide">
+                    <img src="img/BLINGBLING/BLINGBLINGd.png" alt="Fotografía 1">
+                    
+                </div>
+            </div>
+
+            <button class="carousel-nav prev" onclick="prevSlide('foto')">&#10094;</button>
+            <button class="carousel-nav next" onclick="nextSlide('foto')">&#10095;</button>
+        </div>
+    </section>
+
+    <!-- Branding -->
+    <section class="section">
+        <h2></h2>
+
+        <div class="carousel" id="carousel-branding">
+            <div class="carousel-container" id="container-branding">
+                <div class="carousel-slide">
+                    <img src="img/BLINGBLING/05-10-2025-BLINGBLING-26 (1).png" alt="Branding 1">
+                </div>
+                <div class="carousel-slide">
+                    <img src="img/BLINGBLING/05-10-2025-BLINGBLING-23 (1).png" alt="Branding 2">
+                </div>
+                <div class="carousel-slide">
+                    <img src="img/BLINGBLING/05-10-2025-BLINGBLING-22.png" alt="Branding 3">
+                </div>
+            </div>
+
+            <button class="carousel-nav prev" onclick="prevSlide('branding')">&#10094;</button>
+            <button class="carousel-nav next" onclick="nextSlide('branding')">&#10095;</button>
+        </div>
+    </section>
+
+    <!-- Ilustración -->
+    <section class="section">
+        <h2></h2>
+
+        <div class="carousel" id="carousel-ilustracion">
+            <div class="carousel-container" id="container-ilustracion">
+                <div class="carousel-slide">
+                    <img src="img/BLINGBLING/05-10-2025-BLINGBLING-83.png" alt="Ilustración 1">
+                </div>
+                <div class="carousel-slide">
+                    <img src="img/BLINGBLING/05-10-2025-BLINGBLING-92.png" alt="Ilustración 2">
+                </div>
+                <div class="carousel-slide">
+                    <img src="img/BLINGBLING/05-10-2025-BLINGBLING-139 (1).png" alt="Ilustración 3">
+                </div>
+            </div>
+
+            <button class="carousel-nav prev" onclick="prevSlide('ilustracion')">&#10094;</button>
+            <button class="carousel-nav next" onclick="nextSlide('ilustracion')">&#10095;</button>
+        </div>
+    </section>
+
+    <script>
+        const currentSlides = { foto: 0, branding: 0, ilustracion: 0 };
+        const autoPlayIntervals = {};
+
+        function updateCarousel(category) {
+            const container = document.getElementById(`container-${category}`);
+            const slides = container.children;
+            if (slides.length === 0) return;
+
+            const offset = -currentSlides[category] * 100;
+            container.style.transform = `translateX(${offset}%)`;
+
+            if (!autoPlayIntervals[category]) {
+                autoPlayIntervals[category] = setInterval(() => {
+                    nextSlide(category);
+                }, 3000);
+            }
+        }
+
+        function prevSlide(category) {
+            const container = document.getElementById(`container-${category}`);
+            const slides = container.children;
+            if (slides.length === 0) return;
+
+            currentSlides[category] = (currentSlides[category] - 1 + slides.length) % slides.length;
+            updateCarousel(category);
+        }
+
+        function nextSlide(category) {
+            const container = document.getElementById(`container-${category}`);
+            const slides = container.children;
+            if (slides.length === 0) return;
+
+            currentSlides[category] = (currentSlides[category] + 1) % slides.length;
+            updateCarousel(category);
+        }
+
+        document.querySelectorAll('.carousel').forEach(carousel => {
+            carousel.addEventListener('mouseenter', () => {
+                const category = carousel.id.split('-')[1];
+                clearInterval(autoPlayIntervals[category]);
+                delete autoPlayIntervals[category];
+            });
+            carousel.addEventListener('mouseleave', () => {
+                const category = carousel.id.split('-')[1];
+                updateCarousel(category);
+            });
+        });
+
+        window.addEventListener('load', () => {
+            ['foto', 'branding', 'ilustracion'].forEach(category => {
+                updateCarousel(category);
+            });
+        });
+    </script>
+
+</body>
+</html>
